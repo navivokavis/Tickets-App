@@ -42,12 +42,17 @@ class TicketsViewController: UIViewController {
         
         view.addSubview(ticketImageView)
         ticketImageView.image = UIImage(named: "QRTicket")
-//        guard let ticketImage = UIImage(named: "ImageForScrollView") else { return }
-//        ticketImageView = UIImageView(image: ticketImage)
-//        ticketImageView.contentMode = .scaleToFill
+        //        guard let ticketImage = UIImage(named: "ImageForScrollView") else { return }
+        //        ticketImageView = UIImageView(image: ticketImage)
+        //        ticketImageView.contentMode = .scaleToFill
         
         ticketImageView.frame = CGRect(x: 0, y: 0, width: 200, height: 300)
         ticketImageView.center = view.center
+        ticketImageView.layer.shadowColor = UIColor.black.cgColor
+        ticketImageView.layer.shadowOpacity = 0.4
+        ticketImageView.layer.shadowOffset = CGSize.zero
+        ticketImageView.layer.shadowRadius = 10
+//        ticketImageView.layer.shadowPath = UIBezierPath(roundedRect: ticketImageView.bounds, cornerRadius: 10).cgPath
         
     }
     
@@ -59,12 +64,12 @@ class TicketsViewController: UIViewController {
         addButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         
-                ticketImageView.translatesAutoresizingMaskIntoConstraints = false
-                ticketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 180).isActive = true
-                ticketImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-                ticketImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
-                ticketImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-//                ticketImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        ticketImageView.translatesAutoresizingMaskIntoConstraints = false
+        ticketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 180).isActive = true
+        ticketImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        ticketImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        ticketImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        //                ticketImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
 }
