@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F074E2F828EB2A3300EFF24F /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074E2F728EB2A3300EFF24F /* extension.swift */; };
+		F0BFE97628E08AD40075E585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97528E08AD40075E585 /* TabBarViewController.swift */; };
+		F0BFE97828E08B100075E585 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97728E08B100075E585 /* TicketsViewController.swift */; };
+		F0BFE97A28E08B200075E585 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97928E08B200075E585 /* HelpViewController.swift */; };
 		F0C1D04B28DE513C00C05E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1D04A28DE513C00C05E5D /* AppDelegate.swift */; };
 		F0C1D04D28DE513C00C05E5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1D04C28DE513C00C05E5D /* SceneDelegate.swift */; };
-		F0C1D04F28DE513C00C05E5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1D04E28DE513C00C05E5D /* ViewController.swift */; };
+		F0C1D04F28DE513C00C05E5D /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1D04E28DE513C00C05E5D /* FindViewController.swift */; };
 		F0C1D05228DE513C00C05E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C1D05028DE513C00C05E5D /* Main.storyboard */; };
 		F0C1D05428DE513E00C05E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0C1D05328DE513E00C05E5D /* Assets.xcassets */; };
 		F0C1D05728DE513E00C05E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C1D05528DE513E00C05E5D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F074E2F728EB2A3300EFF24F /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		F0BFE97528E08AD40075E585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		F0BFE97728E08B100075E585 /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
+		F0BFE97928E08B200075E585 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		F0C1D04728DE513C00C05E5D /* Tickets App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tickets App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C1D04A28DE513C00C05E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0C1D04C28DE513C00C05E5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F0C1D04E28DE513C00C05E5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0C1D04E28DE513C00C05E5D /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		F0C1D05128DE513C00C05E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0C1D05328DE513E00C05E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0C1D05628DE513E00C05E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +66,11 @@
 			children = (
 				F0C1D04A28DE513C00C05E5D /* AppDelegate.swift */,
 				F0C1D04C28DE513C00C05E5D /* SceneDelegate.swift */,
-				F0C1D04E28DE513C00C05E5D /* ViewController.swift */,
+				F074E2F728EB2A3300EFF24F /* extension.swift */,
+				F0C1D04E28DE513C00C05E5D /* FindViewController.swift */,
+				F0BFE97728E08B100075E585 /* TicketsViewController.swift */,
+				F0BFE97928E08B200075E585 /* HelpViewController.swift */,
+				F0BFE97528E08AD40075E585 /* TabBarViewController.swift */,
 				F0C1D05028DE513C00C05E5D /* Main.storyboard */,
 				F0C1D05328DE513E00C05E5D /* Assets.xcassets */,
 				F0C1D05528DE513E00C05E5D /* LaunchScreen.storyboard */,
@@ -138,7 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0C1D04F28DE513C00C05E5D /* ViewController.swift in Sources */,
+				F0BFE97628E08AD40075E585 /* TabBarViewController.swift in Sources */,
+				F074E2F828EB2A3300EFF24F /* extension.swift in Sources */,
+				F0BFE97A28E08B200075E585 /* HelpViewController.swift in Sources */,
+				F0BFE97828E08B100075E585 /* TicketsViewController.swift in Sources */,
+				F0C1D04F28DE513C00C05E5D /* FindViewController.swift in Sources */,
 				F0C1D04B28DE513C00C05E5D /* AppDelegate.swift in Sources */,
 				F0C1D04D28DE513C00C05E5D /* SceneDelegate.swift in Sources */,
 			);
