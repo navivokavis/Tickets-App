@@ -2,13 +2,13 @@
 //  ViewController.swift
 //  Tickets App
 //
-//  Created by s x on 23.09.22.
+//  Created by Ivan Sivakou on 23.09.22.
 //
 
 import UIKit
 
 class FindViewController: UIViewController {
-
+    
     var fromPlaceTextField = UITextField()
     var toPlaceTextField = UITextField()
     var fromDateTextFeidl = UITextField()
@@ -18,7 +18,7 @@ class FindViewController: UIViewController {
     var passengersTextField = UITextField()
     var findButton = UIButton()
     var newsScrollView = UIScrollView()
-//    var newsView = UIView()
+    var newsStackView = UIStackView()
     var newsImageView = UIImageView()
     var imageNewsOne = UIImage()
     var imageNewsTwo = UIImage()
@@ -47,6 +47,7 @@ class FindViewController: UIViewController {
         view.addSubview(findButton)
         view.addSubview(newsScrollView)
         view.addSubview(changeButton)
+        view.addSubview(newsStackView)
     }
     
     func configureSubviews() {
@@ -54,22 +55,23 @@ class FindViewController: UIViewController {
         
         self.navigationController?.setupNavigationController()
         
-//        title = "Найти билеты"
-        
         fromPlaceTextField.borderStyle = .roundedRect
         fromPlaceTextField.placeholder = "Откуда"
         fromPlaceTextField.font = .boldSystemFont(ofSize: 20)
         fromPlaceTextField.textAlignment = .left
+        fromPlaceTextField.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         
         toPlaceTextField.borderStyle = .roundedRect
         toPlaceTextField.placeholder = "Куда"
         toPlaceTextField.font = .boldSystemFont(ofSize: 20)
         toPlaceTextField.textAlignment = .left
+        fromPlaceTextField.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         
         fromDateTextFeidl.borderStyle = .roundedRect
         fromDateTextFeidl.placeholder = "Туда"
         fromDateTextFeidl.font = .boldSystemFont(ofSize: 20)
         fromDateTextFeidl.textAlignment = .left
+        fromDateTextFeidl.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         
         createFromDatePicker()
         
@@ -77,6 +79,7 @@ class FindViewController: UIViewController {
         toDateTextField.placeholder = "Обратно"
         toDateTextField.font = .boldSystemFont(ofSize: 20)
         toDateTextField.textAlignment = .left
+        toDateTextField.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         
         createToDatePicker()
         
@@ -84,6 +87,7 @@ class FindViewController: UIViewController {
         passengersTextField.placeholder = "Пассажиры"
         passengersTextField.font = .boldSystemFont(ofSize: 20)
         passengersTextField.textAlignment = .left
+        passengersTextField.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         
         findButton.setTitle("НАЙТИ БИЛЕТЫ", for: .normal)
         findButton.backgroundColor = .gray
@@ -95,7 +99,6 @@ class FindViewController: UIViewController {
         newsImageView = UIImageView(image: imageNews)
         newsScrollView.addSubview(newsImageView)
         newsScrollView.contentSize = newsImageView.bounds.size
-//        newsScrollView.contentSize = CGSize(width: 200, height: 200)
         newsScrollView.contentMode = .scaleAspectFit
         
         changeButton.setImage(UIImage(systemName: "arrow.up.arrow.down"), for: .normal)
@@ -104,6 +107,20 @@ class FindViewController: UIViewController {
         changeButton.layer.borderWidth = 2
         changeButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         changeButton.tintColor = .gray
+        
+        newsStackView.axis = .horizontal
+        newsStackView.distribution = .equalSpacing
+        newsStackView.spacing = 20
+        addImageOnStackView()
+        func addImageOnStackView() {
+            let numberofImage = 4
+            for i in 0...numberofImage {
+                guard let imageNews = UIImage(named: "ImageForScrollView") else { return }
+                let imageView = UIImageView(image: imageNews)
+                newsStackView.addArrangedSubview( imageView )
+            }
+        }
+        
     }
     
     func buildHierarchy() {
@@ -111,62 +128,56 @@ class FindViewController: UIViewController {
         fromPlaceTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         fromPlaceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         fromPlaceTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        fromPlaceTextField.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        fromPlaceTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         toPlaceTextField.translatesAutoresizingMaskIntoConstraints = false
         toPlaceTextField.topAnchor.constraint(equalTo: fromPlaceTextField.bottomAnchor, constant: 5).isActive = true
         toPlaceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         toPlaceTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        toPlaceTextField.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        toPlaceTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         fromDateTextFeidl.translatesAutoresizingMaskIntoConstraints = false
         fromDateTextFeidl.topAnchor.constraint(equalTo: toPlaceTextField.bottomAnchor, constant: 5).isActive = true
         fromDateTextFeidl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         fromDateTextFeidl.rightAnchor.constraint(equalTo: view.centerXAnchor, constant: -5).isActive = true
-        fromDateTextFeidl.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        fromDateTextFeidl.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         toDateTextField.translatesAutoresizingMaskIntoConstraints = false
         toDateTextField.topAnchor.constraint(equalTo: toPlaceTextField.bottomAnchor, constant: 5).isActive = true
         toDateTextField.leftAnchor.constraint(equalTo: view.centerXAnchor, constant: 5).isActive = true
         toDateTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        toDateTextField.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        toDateTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         passengersTextField.translatesAutoresizingMaskIntoConstraints = false
         passengersTextField.topAnchor.constraint(equalTo: toDateTextField.bottomAnchor, constant: 5).isActive = true
         passengersTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         passengersTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        passengersTextField.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        passengersTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         findButton.translatesAutoresizingMaskIntoConstraints = false
-        findButton.topAnchor.constraint(equalTo: toDateTextField.bottomAnchor, constant: 5).isActive = true
+        findButton.topAnchor.constraint(equalTo: passengersTextField.bottomAnchor, constant: 5).isActive = true
         findButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         findButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        findButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        findButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-//        newsView.translatesAutoresizingMaskIntoConstraints = false
-//        newsView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 5).isActive = true
-//        newsView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-//        newsView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-//        newsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        
-        newsScrollView.translatesAutoresizingMaskIntoConstraints = false
-        newsScrollView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 5).isActive = true
-        newsScrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-        newsScrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        newsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        newsStackView.translatesAutoresizingMaskIntoConstraints = false
+        newsStackView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 5).isActive = true
+        newsStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        newsStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        newsStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         
         changeButton.translatesAutoresizingMaskIntoConstraints = false
         changeButton.topAnchor.constraint(equalTo: fromPlaceTextField.bottomAnchor, constant: -25).isActive = true
-//        changeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         changeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         changeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        changeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-
+        changeButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
     }
-
+    
+    
+    //MARK: - Create DatePicker
     func createFromToolBar() -> UIToolbar {
-         //toolbar
+        //toolbar
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         
@@ -178,7 +189,7 @@ class FindViewController: UIViewController {
     }
     
     func createToToolBar() -> UIToolbar {
-         //toolbar
+        //toolbar
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         
@@ -219,6 +230,18 @@ class FindViewController: UIViewController {
         
         toDateTextField.text = dateFormatter.string(from: toDatePicker.date)
         view.endEditing(true)
+    }
+    
+    
+    //MARK: - Change color of find button
+    func changeColorOfFindButton() {
+        if fromPlaceTextField.text != "" && toPlaceTextField.text != "" && passengersTextField.text != "" && fromDateTextFeidl.text != "" && toDateTextField.text != "" {
+            findButton.backgroundColor = .green
+        }
+    }
+    
+    @objc func changeValue() {
+        changeColorOfFindButton()
     }
 }
 

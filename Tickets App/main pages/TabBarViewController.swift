@@ -14,7 +14,8 @@ class TabBar: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .label
+//        tabBar.tintColor = .label
+        tabBar.tintColor = .green
         setupVCs()
         
     }
@@ -22,23 +23,24 @@ class TabBar: UITabBarController {
     
     
     fileprivate func createNavController(for rootViewController: UIViewController,
+                                         toptitle: String,
                                          title: String,
                                          image: UIImage) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
         navController.navigationBar.prefersLargeTitles = true
-//        navController.navigationBar.tintColor = .white
         navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        rootViewController.navigationItem.title = title
+        navController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        rootViewController.navigationItem.title = toptitle
         return navController
     }
     
     func setupVCs() {
         viewControllers = [
-            createNavController(for: FindViewController(), title: "Поиск", image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: TicketsViewController(), title: "Билеты", image: UIImage(systemName: "ticket")!),
-            createNavController(for: HelpViewController(), title: "Помощь", image: UIImage(systemName: "info")!)
+            createNavController(for: FindViewController(), toptitle: "Найти билеты", title: "Поиск", image: UIImage(systemName: "magnifyingglass")!),
+            createNavController(for: TicketsViewController(), toptitle: "Билеты", title: "Билеты", image: UIImage(systemName: "ticket")!),
+            createNavController(for: HelpViewController(), toptitle: "Помощь", title: "Помощь", image: UIImage(systemName: "info")!)
         ]
     }
 }

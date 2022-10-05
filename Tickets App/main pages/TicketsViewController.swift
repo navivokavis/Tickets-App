@@ -37,23 +37,23 @@ class TicketsViewController: UIViewController {
         
         self.navigationController?.setupNavigationController()
         
+        tabBarController?.tabBar.isHidden = false
+        
         addButton.setTitle("Добавить билет", for: .normal)
         addButton.tintColor = .white
         
         view.addSubview(ticketImageView)
         ticketImageView.image = UIImage(named: "QRTicket")
-        //        guard let ticketImage = UIImage(named: "ImageForScrollView") else { return }
-        //        ticketImageView = UIImageView(image: ticketImage)
-        //        ticketImageView.contentMode = .scaleToFill
-        
         ticketImageView.frame = CGRect(x: 0, y: 0, width: 200, height: 300)
         ticketImageView.center = view.center
         ticketImageView.layer.shadowColor = UIColor.black.cgColor
         ticketImageView.layer.shadowOpacity = 0.4
         ticketImageView.layer.shadowOffset = CGSize.zero
         ticketImageView.layer.shadowRadius = 10
-//        ticketImageView.layer.shadowPath = UIBezierPath(roundedRect: ticketImageView.bounds, cornerRadius: 10).cgPath
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить билет", style: .done, target: self, action: #selector(pushAddTicket))
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
+                
     }
     
     func buildHierarchy() {
@@ -69,7 +69,11 @@ class TicketsViewController: UIViewController {
         ticketImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         ticketImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         ticketImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        //                ticketImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+
+    }
+    
+    @objc func pushAddTicket() {
+        self.navigationController?.pushViewController(AddNewTicketViewController(), animated: true)
     }
     
 }

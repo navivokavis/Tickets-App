@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F074E2F828EB2A3300EFF24F /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074E2F728EB2A3300EFF24F /* extension.swift */; };
+		F074E2FA28EC4D2000EFF24F /* AddNewTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074E2F928EC4D2000EFF24F /* AddNewTicketViewController.swift */; };
 		F0BFE97628E08AD40075E585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97528E08AD40075E585 /* TabBarViewController.swift */; };
 		F0BFE97828E08B100075E585 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97728E08B100075E585 /* TicketsViewController.swift */; };
 		F0BFE97A28E08B200075E585 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97928E08B200075E585 /* HelpViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		F074E2F728EB2A3300EFF24F /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		F074E2F928EC4D2000EFF24F /* AddNewTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTicketViewController.swift; sourceTree = "<group>"; };
 		F0BFE97528E08AD40075E585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F0BFE97728E08B100075E585 /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		F0BFE97928E08B200075E585 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F074E2FB28ED6FF100EFF24F /* main pages */ = {
+			isa = PBXGroup;
+			children = (
+				F0C1D04E28DE513C00C05E5D /* FindViewController.swift */,
+				F0BFE97728E08B100075E585 /* TicketsViewController.swift */,
+				F0BFE97928E08B200075E585 /* HelpViewController.swift */,
+				F0BFE97528E08AD40075E585 /* TabBarViewController.swift */,
+			);
+			path = "main pages";
+			sourceTree = "<group>";
+		};
 		F0C1D03E28DE513C00C05E5D = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +80,8 @@
 				F0C1D04A28DE513C00C05E5D /* AppDelegate.swift */,
 				F0C1D04C28DE513C00C05E5D /* SceneDelegate.swift */,
 				F074E2F728EB2A3300EFF24F /* extension.swift */,
-				F0C1D04E28DE513C00C05E5D /* FindViewController.swift */,
-				F0BFE97728E08B100075E585 /* TicketsViewController.swift */,
-				F0BFE97928E08B200075E585 /* HelpViewController.swift */,
-				F0BFE97528E08AD40075E585 /* TabBarViewController.swift */,
+				F074E2FB28ED6FF100EFF24F /* main pages */,
+				F074E2F928EC4D2000EFF24F /* AddNewTicketViewController.swift */,
 				F0C1D05028DE513C00C05E5D /* Main.storyboard */,
 				F0C1D05328DE513E00C05E5D /* Assets.xcassets */,
 				F0C1D05528DE513E00C05E5D /* LaunchScreen.storyboard */,
@@ -152,6 +163,7 @@
 			files = (
 				F0BFE97628E08AD40075E585 /* TabBarViewController.swift in Sources */,
 				F074E2F828EB2A3300EFF24F /* extension.swift in Sources */,
+				F074E2FA28EC4D2000EFF24F /* AddNewTicketViewController.swift in Sources */,
 				F0BFE97A28E08B200075E585 /* HelpViewController.swift in Sources */,
 				F0BFE97828E08B100075E585 /* TicketsViewController.swift in Sources */,
 				F0C1D04F28DE513C00C05E5D /* FindViewController.swift in Sources */,

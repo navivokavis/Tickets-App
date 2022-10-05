@@ -67,7 +67,7 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 4:
             cell.textLabel?.text = "Контактные и регистрационные данные"
         case 5:
-            cell.textLabel?.text = "\(gearImage) Настройки"
+            cell.textLabel?.text = "\(gearImage)" + "Настройки"
         case 6:
             cell.textLabel?.text = "Оставьте нам отзыв!"
         default:
