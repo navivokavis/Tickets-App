@@ -2,7 +2,7 @@
 //  TicketsViewController.swift
 //  Tickets App
 //
-//  Created by s x on 25.09.22.
+//  Created by Ivan Sivakou on 25.09.22.
 //
 
 import UIKit
@@ -13,6 +13,10 @@ class TicketsViewController: UIViewController {
     var ticketImageView = UIImageView()
     var ticketImage = UIImage()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,7 @@ class TicketsViewController: UIViewController {
         
         self.navigationController?.setupNavigationController()
         
-        tabBarController?.tabBar.isHidden = false
+        
         
         addButton.setTitle("Добавить билет", for: .normal)
         addButton.tintColor = .white
@@ -75,5 +79,6 @@ class TicketsViewController: UIViewController {
     @objc func pushAddTicket() {
         self.navigationController?.pushViewController(AddNewTicketViewController(), animated: true)
     }
+    
     
 }

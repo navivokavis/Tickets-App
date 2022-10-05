@@ -47,7 +47,7 @@ class FindViewController: UIViewController {
         view.addSubview(findButton)
         view.addSubview(newsScrollView)
         view.addSubview(changeButton)
-        view.addSubview(newsStackView)
+        newsScrollView.addSubview(newsStackView)
     }
     
     func configureSubviews() {
@@ -95,12 +95,6 @@ class FindViewController: UIViewController {
         findButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         findButton.layer.cornerRadius = 10
         
-        guard let imageNews = UIImage(named: "ImageForScrollView") else { return }
-        newsImageView = UIImageView(image: imageNews)
-        newsScrollView.addSubview(newsImageView)
-        newsScrollView.contentSize = newsImageView.bounds.size
-        newsScrollView.contentMode = .scaleAspectFit
-        
         changeButton.setImage(UIImage(systemName: "arrow.up.arrow.down"), for: .normal)
         changeButton.layer.cornerRadius = 25
         changeButton.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -108,18 +102,12 @@ class FindViewController: UIViewController {
         changeButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         changeButton.tintColor = .gray
         
+        newsScrollView.isPagingEnabled = true
+        
         newsStackView.axis = .horizontal
-        newsStackView.distribution = .equalSpacing
-        newsStackView.spacing = 20
+        newsStackView.distribution = .fillEqually
+        
         addImageOnStackView()
-        func addImageOnStackView() {
-            let numberofImage = 4
-            for i in 0...numberofImage {
-                guard let imageNews = UIImage(named: "ImageForScrollView") else { return }
-                let imageView = UIImageView(image: imageNews)
-                newsStackView.addArrangedSubview( imageView )
-            }
-        }
         
     }
     
@@ -160,17 +148,23 @@ class FindViewController: UIViewController {
         findButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         findButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
+        newsScrollView.translatesAutoresizingMaskIntoConstraints = false
+        newsScrollView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 5).isActive = true
+        newsScrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        newsScrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        newsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        
         newsStackView.translatesAutoresizingMaskIntoConstraints = false
         newsStackView.topAnchor.constraint(equalTo: findButton.bottomAnchor, constant: 5).isActive = true
-        newsStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-        newsStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        newsStackView.leftAnchor.constraint(equalTo: newsScrollView.leftAnchor, constant: 0).isActive = true
+        newsStackView.rightAnchor.constraint(equalTo: newsScrollView.rightAnchor, constant: 0).isActive = true
         newsStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         
         changeButton.translatesAutoresizingMaskIntoConstraints = false
         changeButton.topAnchor.constraint(equalTo: fromPlaceTextField.bottomAnchor, constant: -25).isActive = true
         changeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         changeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        changeButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        changeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
     
@@ -242,6 +236,19 @@ class FindViewController: UIViewController {
     
     @objc func changeValue() {
         changeColorOfFindButton()
+    }
+    
+    //MARK: - add Image On StackView
+    func addImageOnStackView() {
+        let numberofImage = 4
+        for i in 0...numberofImage {
+            guard let imageNews = UIImage(named: "ImageForScrollView") else { return }
+            let imageView = UIImageView(image: imageNews)
+            newsStackView.addArrangedSubview( imageView )
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95).isActive = true
+        }
     }
 }
 

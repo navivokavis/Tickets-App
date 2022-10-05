@@ -2,7 +2,7 @@
 //  HelpViewController.swift
 //  Tickets App
 //
-//  Created by s x on 25.09.22.
+//  Created by Ivan Sivakou on 25.09.22.
 //
 
 import UIKit
@@ -11,7 +11,8 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     var infoTableView = UITableView()
     var indentifire = "MyCell"
-    var gearImage = UIImage(systemName: "gearshape.fill")
+    var gearImage = UIImage()
+    var exclamationImage = UIImage()
     
     
     override func viewDidLoad() {
@@ -37,6 +38,11 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         infoTableView.delegate = self
         infoTableView.dataSource = self
         infoTableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
+        
+        gearImage = UIImage(systemName: "gearshape.fill")!
+//        gearImage.
+        
+        exclamationImage = UIImage(systemName: "exclamationmark.bubble.fill")!
     }
     
     func buildHierarchy() {
@@ -67,8 +73,11 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 4:
             cell.textLabel?.text = "Контактные и регистрационные данные"
         case 5:
-            cell.textLabel?.text = "\(gearImage)" + "Настройки"
+            cell.imageView?.image = gearImage
+            cell.textLabel?.text = "Настройки"
         case 6:
+            cell.imageView?.image = exclamationImage
+            cell.imageView?.image?.withTintColor(.gray)
             cell.textLabel?.text = "Оставьте нам отзыв!"
         default:
             break
@@ -85,24 +94,7 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            print ("lox")
-        case 1:
-            print("xol")
-//        case 2:
-//            cell.textLabel?.text = "Политика конфиденциальности"
-//        case 3:
-//            cell.textLabel?.text = "Остановки"
-//        case 4:
-//            cell.textLabel?.text = "Контактные и регистрационные данные"
-//        case 5:
-//            cell.textLabel?.text = "\(gearImage) Настройки"
-//        case 6:
-//            cell.textLabel?.text = "Оставьте нам отзыв!"
-        default:
-            break
-        }
+       
     }
     
 }

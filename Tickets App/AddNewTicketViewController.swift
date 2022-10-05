@@ -106,11 +106,4 @@ class AddNewTicketViewController: UIViewController {
             changeColorOfFindButton()
         }
     
-    //MARK: - Show TabBar Item
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        tabBarController?.tabBar.isHidden = false
-    }
-    
 }
