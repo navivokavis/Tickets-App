@@ -87,6 +87,7 @@ class FindViewController: UIViewController {
         passengersTextField.placeholder = "Пассажиры"
         passengersTextField.font = .boldSystemFont(ofSize: 20)
         passengersTextField.textAlignment = .left
+        passengersTextField.addTarget(self, action: #selector(openSheetPassengersTextField), for: .editingDidBegin)
         passengersTextField.addTarget(self, action: #selector(changeValue), for: .editingChanged)
         
         findButton.setTitle("НАЙТИ БИЛЕТЫ", for: .normal)
@@ -236,6 +237,17 @@ class FindViewController: UIViewController {
     
     @objc func changeValue() {
         changeColorOfFindButton()
+    }
+    
+    @objc func openSheetPassengersTextField() {
+        let bottomSheetWindow = ChoosePassengersViewController()
+        if let sheet = bottomSheetWindow.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersGrabberVisible = true
+
+        }
+        present(bottomSheetWindow, animated: true)
     }
     
     //MARK: - add Image On StackView

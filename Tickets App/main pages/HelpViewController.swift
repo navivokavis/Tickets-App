@@ -40,6 +40,7 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         infoTableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
         
         gearImage = UIImage(systemName: "gearshape.fill")!
+        
 //        gearImage.
         
         exclamationImage = UIImage(systemName: "exclamationmark.bubble.fill")!
@@ -77,7 +78,6 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.textLabel?.text = "Настройки"
         case 6:
             cell.imageView?.image = exclamationImage
-            cell.imageView?.image?.withTintColor(.gray)
             cell.textLabel?.text = "Оставьте нам отзыв!"
         default:
             break
