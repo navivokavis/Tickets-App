@@ -239,8 +239,9 @@ class FindViewController: UIViewController {
         changeColorOfFindButton()
     }
     
+    //MARK: - Open Sheet
     @objc func openSheetPassengersTextField() {
-        let bottomSheetWindow = ChoosePassengersViewController()
+        let bottomSheetWindow = PassengersViewController()
         if let sheet = bottomSheetWindow.sheetPresentationController {
             sheet.detents = [.medium()]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
