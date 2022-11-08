@@ -30,8 +30,8 @@
             filePath = "Tickets App/main pages/FindViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "configureSubviews()"
             landmarkType = "7">
          </BreakpointContent>

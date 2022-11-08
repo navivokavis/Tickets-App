@@ -25,12 +25,12 @@ class TicketsViewController: UIViewController {
     }
     
     func setup() {
-        layoutSubviews()
-        configureSubviews()
         buildHierarchy()
+        configureSubviews()
+        layoutSubviews()
     }
     
-    func layoutSubviews() {
+    func buildHierarchy() {
         view.addSubview(addButton)
         view.addSubview(ticketImageView)
         
@@ -40,8 +40,6 @@ class TicketsViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         self.navigationController?.setupNavigationController()
-        
-        
         
         addButton.setTitle("Добавить билет", for: .normal)
         addButton.tintColor = .white
@@ -60,7 +58,7 @@ class TicketsViewController: UIViewController {
                 
     }
     
-    func buildHierarchy() {
+    func layoutSubviews() {
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         addButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true

@@ -25,6 +25,8 @@ class FindViewController: UIViewController {
     var imageNewsThree = UIImage()
     var changeButton = UIButton()
     
+    var ticket = TicketModel(travelFrom: "", travelTo: "", departDate: "", returnDate: "", passenger: "", adult: 0, bike: 0, child: 0, ticketPrice: "")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +35,12 @@ class FindViewController: UIViewController {
     }
     
     func setup() {
-        layoutSubviews()
-        configureSubviews()
         buildHierarchy()
+        configureSubviews()
+        layoutSubviews()
     }
     
-    func layoutSubviews() {
+    func buildHierarchy() {
         view.addSubview(fromPlaceTextField)
         view.addSubview(toPlaceTextField)
         view.addSubview(fromDateTextFeidl)
@@ -87,8 +89,10 @@ class FindViewController: UIViewController {
         passengersTextField.placeholder = "Пассажиры"
         passengersTextField.font = .boldSystemFont(ofSize: 20)
         passengersTextField.textAlignment = .left
-        passengersTextField.addTarget(self, action: #selector(openSheetPassengersTextField), for: .editingDidBegin)
-        passengersTextField.addTarget(self, action: #selector(changeValue), for: .editingChanged)
+        passengersTextField.addTarget(self, action: #selector(presentModal), for: .editingDidBegin)
+//        passengersTextField.addTarget(self, action: #selector(openSheetPassengersTextField), for: .editingDidBegin)
+//        passengersTextField.addTarget(self, action: #selector(presentModal), for: .editingChanged)
+//        passengersTextField.textField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentModal)))
         
         findButton.setTitle("НАЙТИ БИЛЕТЫ", for: .normal)
         findButton.backgroundColor = .gray
@@ -112,7 +116,7 @@ class FindViewController: UIViewController {
         
     }
     
-    func buildHierarchy() {
+    func layoutSubviews() {
         fromPlaceTextField.translatesAutoresizingMaskIntoConstraints = false
         fromPlaceTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         fromPlaceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
@@ -240,16 +244,16 @@ class FindViewController: UIViewController {
     }
     
     //MARK: - Open Sheet
-    @objc func openSheetPassengersTextField() {
-        let bottomSheetWindow = PassengersViewController()
-        if let sheet = bottomSheetWindow.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersGrabberVisible = true
-
-        }
-        present(bottomSheetWindow, animated: true)
-    }
+//    @objc func openSheetPassengersTextField() {
+//        let bottomSheetWindow = PassengersViewController()
+//        if let sheet = bottomSheetWindow.sheetPresentationController {
+//            sheet.detents = [.medium()]
+//            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+//            sheet.prefersGrabberVisible = true
+//
+//        }
+//        present(bottomSheetWindow, animated: true)
+//    }
     
     //MARK: - add Image On StackView
     func addImageOnStackView() {
@@ -263,6 +267,68 @@ class FindViewController: UIViewController {
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95).isActive = true
         }
     }
+    
+    
+    
+    
+    @objc func presentModal() {
+        let detailViewController = DetailViewController()
+        
+        detailViewController.threeInt = { [weak self] adult, bike, child in
+            
+            self?.ticket.adult = adult
+            self?.ticket.bike = bike
+            self?.ticket.child = child
+            self?.passengersTextField.text = self?.stringToShow(adult: adult, bike: bike, child: child)
+            
+            
+//            self?.textFieldsIsNotEmpty()
+            
+            
+        }
+        
+        detailViewController.adultCounter = ticket.adult
+        detailViewController.bikeCounter = ticket.bike
+        detailViewController.childCounter = ticket.child
+        
+        detailViewController.transitioningDelegate  = detailViewController.overlayTransitioningDelegate
+        detailViewController.modalPresentationStyle = .custom
+        self.present(detailViewController, animated: true, completion: nil)
+        
+        //        let nav = UINavigationController(rootViewController: detailViewController)
+        //        nav.modalPresentationStyle = .pageSheet
+        //
+        //        if let sheet = nav.sheetPresentationController {
+        //
+        //            sheet.detents = [.medium()]
+        //            sheet.prefersGrabberVisible = true
+        //            sheet.preferredCornerRadius = 15
+        //            sheet.prefersEdgeAttachedInCompactHeight = true
+        //            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        //        }
+        //        present(nav, animated: true, completion: nil)
+    }
+    
+    func stringToShow(adult: Int, bike: Int, child: Int) -> String {
+        
+        var finalString = ""
+        
+        if adult != 0 {
+            finalString =  "Взрослые: \(adult) "
+        }
+        
+        if bike != 0 {
+            finalString += "Велосипеды: \(bike) "
+        }
+        
+        if child != 0 {
+            finalString += "Дети: \(child) "
+        }
+        
+        return finalString
+    }
+    
+    
 }
 
 

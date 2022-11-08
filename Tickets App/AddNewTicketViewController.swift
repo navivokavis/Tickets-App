@@ -21,12 +21,12 @@ class AddNewTicketViewController: UIViewController {
     }
     
     func setup() {
-        layoutSubviews()
-        configureSubviews()
         buildHierarchy()
+        configureSubviews()
+        layoutSubviews()
     }
 
-    func layoutSubviews() {
+    func buildHierarchy() {
         view.addSubview(addNumberOfBookingTextField)
         view.addSubview(addEmailTextField)
         view.addSubview(searchButton)
@@ -68,7 +68,7 @@ class AddNewTicketViewController: UIViewController {
 
     }
     
-    func buildHierarchy() {
+    func layoutSubviews() {
         addNumberOfBookingTextField.translatesAutoresizingMaskIntoConstraints = false
         addNumberOfBookingTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         addNumberOfBookingTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true

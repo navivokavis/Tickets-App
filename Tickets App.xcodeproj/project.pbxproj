@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		F074E2F828EB2A3300EFF24F /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074E2F728EB2A3300EFF24F /* extension.swift */; };
 		F074E2FA28EC4D2000EFF24F /* AddNewTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074E2F928EC4D2000EFF24F /* AddNewTicketViewController.swift */; };
-		F09F96B528F6C21100B80CAD /* ChoosePassengersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F96B428F6C21100B80CAD /* ChoosePassengersViewController.swift */; };
-		F09F96B728F7258E00B80CAD /* PassengersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F96B628F7258E00B80CAD /* PassengersViewController.swift */; };
-		F09F96B928F7281000B80CAD /* CustomPassengerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F96B828F7281000B80CAD /* CustomPassengerTableViewCell.swift */; };
+		F09F96B528F6C21100B80CAD /* ChoosePassengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F96B428F6C21100B80CAD /* ChoosePassengersView.swift */; };
+		F0B65D2328FC6CB00087E6ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B65D2228FC6CB00087E6ED /* DetailViewController.swift */; };
+		F0B65D2528FC7D1B0087E6ED /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B65D2428FC7D1A0087E6ED /* TicketModel.swift */; };
 		F0BFE97628E08AD40075E585 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97528E08AD40075E585 /* TabBarViewController.swift */; };
 		F0BFE97828E08B100075E585 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97728E08B100075E585 /* TicketsViewController.swift */; };
 		F0BFE97A28E08B200075E585 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFE97928E08B200075E585 /* HelpViewController.swift */; };
@@ -26,9 +26,9 @@
 /* Begin PBXFileReference section */
 		F074E2F728EB2A3300EFF24F /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		F074E2F928EC4D2000EFF24F /* AddNewTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTicketViewController.swift; sourceTree = "<group>"; };
-		F09F96B428F6C21100B80CAD /* ChoosePassengersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePassengersViewController.swift; sourceTree = "<group>"; };
-		F09F96B628F7258E00B80CAD /* PassengersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengersViewController.swift; sourceTree = "<group>"; };
-		F09F96B828F7281000B80CAD /* CustomPassengerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPassengerTableViewCell.swift; sourceTree = "<group>"; };
+		F09F96B428F6C21100B80CAD /* ChoosePassengersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePassengersView.swift; sourceTree = "<group>"; };
+		F0B65D2228FC6CB00087E6ED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F0B65D2428FC7D1A0087E6ED /* TicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
 		F0BFE97528E08AD40075E585 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F0BFE97728E08B100075E585 /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		F0BFE97928E08B200075E585 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +64,30 @@
 			path = "main pages";
 			sourceTree = "<group>";
 		};
+		F08EDFD428F86BE000AEAAFB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F09F96B428F6C21100B80CAD /* ChoosePassengersView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F0B65D2628FC96110087E6ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0B65D2428FC7D1A0087E6ED /* TicketModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0B65D2728FC96450087E6ED /* Passengers Modal VC */ = {
+			isa = PBXGroup;
+			children = (
+				F0B65D2228FC6CB00087E6ED /* DetailViewController.swift */,
+			);
+			path = "Passengers Modal VC";
+			sourceTree = "<group>";
+		};
 		F0C1D03E28DE513C00C05E5D = {
 			isa = PBXGroup;
 			children = (
@@ -88,9 +112,9 @@
 				F074E2F728EB2A3300EFF24F /* extension.swift */,
 				F074E2FB28ED6FF100EFF24F /* main pages */,
 				F074E2F928EC4D2000EFF24F /* AddNewTicketViewController.swift */,
-				F09F96B428F6C21100B80CAD /* ChoosePassengersViewController.swift */,
-				F09F96B628F7258E00B80CAD /* PassengersViewController.swift */,
-				F09F96B828F7281000B80CAD /* CustomPassengerTableViewCell.swift */,
+				F08EDFD428F86BE000AEAAFB /* Views */,
+				F0B65D2728FC96450087E6ED /* Passengers Modal VC */,
+				F0B65D2628FC96110087E6ED /* Model */,
 				F0C1D05028DE513C00C05E5D /* Main.storyboard */,
 				F0C1D05328DE513E00C05E5D /* Assets.xcassets */,
 				F0C1D05528DE513E00C05E5D /* LaunchScreen.storyboard */,
@@ -170,17 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F09F96B528F6C21100B80CAD /* ChoosePassengersViewController.swift in Sources */,
+				F09F96B528F6C21100B80CAD /* ChoosePassengersView.swift in Sources */,
 				F0BFE97628E08AD40075E585 /* TabBarViewController.swift in Sources */,
 				F074E2F828EB2A3300EFF24F /* extension.swift in Sources */,
-				F09F96B928F7281000B80CAD /* CustomPassengerTableViewCell.swift in Sources */,
+				F0B65D2328FC6CB00087E6ED /* DetailViewController.swift in Sources */,
 				F074E2FA28EC4D2000EFF24F /* AddNewTicketViewController.swift in Sources */,
 				F0BFE97A28E08B200075E585 /* HelpViewController.swift in Sources */,
 				F0BFE97828E08B100075E585 /* TicketsViewController.swift in Sources */,
+				F0B65D2528FC7D1B0087E6ED /* TicketModel.swift in Sources */,
 				F0C1D04F28DE513C00C05E5D /* FindViewController.swift in Sources */,
 				F0C1D04B28DE513C00C05E5D /* AppDelegate.swift in Sources */,
 				F0C1D04D28DE513C00C05E5D /* SceneDelegate.swift in Sources */,
-				F09F96B728F7258E00B80CAD /* PassengersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

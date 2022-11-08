@@ -21,12 +21,12 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setup() {
-        layoutSubviews()
-        configureSubviews()
         buildHierarchy()
+        configureSubviews()
+        layoutSubviews()
     }
 
-    func layoutSubviews() {
+    func buildHierarchy() {
         view.addSubview(infoTableView)
     }
     
@@ -41,12 +41,10 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         gearImage = UIImage(systemName: "gearshape.fill")!
         
-//        gearImage.
-        
         exclamationImage = UIImage(systemName: "exclamationmark.bubble.fill")!
     }
     
-    func buildHierarchy() {
+    func layoutSubviews() {
         infoTableView.translatesAutoresizingMaskIntoConstraints = false
         infoTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         infoTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
